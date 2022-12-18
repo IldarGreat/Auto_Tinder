@@ -1,0 +1,5 @@
+application:
+  auth:
+    jwt-secret: IldarAndLera
+    jwt-expiration-time: 999999h
+    cookie-name: autoTinderJWT
