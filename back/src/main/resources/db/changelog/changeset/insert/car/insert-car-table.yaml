@@ -24,3 +24,69 @@ databaseChangeLog:
               - column:
                   name: car_characteristic_id
                   value: 1
+
+        - insert:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: user_id
+                  value: 017f2d55-e1d6-4cda-8614-ffb5fa7ae7cd
+              - column:
+                  name: name
+                  value: ВАЗ Ока
+              - column:
+                  name: price
+                  value: 45000
+              - column:
+                  name: status
+                  value: ON_EXCHANGE
+              - column:
+                  name: car_characteristic_id
+                  value: 2
+
+        - insert:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: user_id
+                  value: d70b2cb9-15ce-4853-84f8-412ea7a7bc93
+              - column:
+                  name: name
+                  value: Volkswagen Toyareg 3.2 AT
+              - column:
+                  name: price
+                  value: 500000
+              - column:
+                  name: status
+                  value: ON_EXCHANGE
+              - column:
+                  name: car_characteristic_id
+                  value: 3
+
+        - insert:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: user_id
+                  value: f0ba5113-9921-4b5e-91f6-b100c5d39b8e
+              - column:
+                  name: name
+                  value: Skoda Octavia 1.8 MT
+              - column:
+                  name: price
+                  value: 500000
+              - column:
+                  name: status
+                  value: ON_EXCHANGE
+              - column:
+                  name: car_characteristic_id
+                  value: 4

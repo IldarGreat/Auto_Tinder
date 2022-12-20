@@ -21,3 +21,60 @@ databaseChangeLog:
               - column:
                   name: trunk_volume
                   value: 250
+
+        - insert:
+            tableName: dimensions
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: length
+                  value: 3200
+              - column:
+                  name: height
+                  value: 1400
+              - column:
+                  name: wheelbase
+                  value: 2180
+              - column:
+                  name: trunk_volume
+                  value: 630
+
+        - insert:
+            tableName: dimensions
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: length
+                  value: 4754
+              - column:
+                  name: height
+                  value: 1726
+              - column:
+                  name: wheelbase
+                  value: 2855
+              - column:
+                  name: trunk_volume
+                  value: 1570
+
+        - insert:
+            tableName: dimensions
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: length
+                  value: 4569
+              - column:
+                  name: height
+                  value: 1462
+              - column:
+                  name: wheelbase
+                  value: 2578
+              - column:
+                  name: trunk_volume
+                  value: 1420
