@@ -1,8 +1,16 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changeset/init/create-photo-table.yaml
+      file: create-photo-table.yaml
+      relativeToChangelogFile: true
   - include:
-      file: db/changelog/changeset/init/create-users-table.yaml
+      file: create-users-table.yaml
+      relativeToChangelogFile: true
   - include:
       file: car/changeset-init-car.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-dislike-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-like-table.yaml
       relativeToChangelogFile: true
