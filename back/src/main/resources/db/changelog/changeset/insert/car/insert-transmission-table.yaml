@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-transmission-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: transmissions
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: drive_unit
+                  value: Полный
+              - column:
+                  name: transmission_type
+                  value: AMT
+
+        - insert:
+            tableName: transmissions
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: drive_unit
+                  value: Передний
+              - column:
+                  name: transmission_type
+                  value: AMT
+
+        - insert:
+            tableName: transmissions
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: drive_unit
+                  value: Полный
+              - column:
+                  name: transmission_type
+                  value: IMT
+
+        - insert:
+            tableName: transmissions
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: drive_unit
+                  value: Полный
+              - column:
+                  name: transmission_type
+                  value: AMT

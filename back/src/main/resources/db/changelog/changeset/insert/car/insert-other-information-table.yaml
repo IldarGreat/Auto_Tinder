@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-other-information-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: other_informations
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: body
+                  value: Внедорожник
+              - column:
+                  name: equipment
+                  value: Base
+              - column:
+                  name: number_of_doors
+                  value: 3
+              - column:
+                  name: year
+                  valueDate: 2015-12-29
+
+        - insert:
+            tableName: other_informations
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: body
+                  value: Хетчбэк
+              - column:
+                  name: equipment
+                  value: Базовая
+              - column:
+                  name: number_of_doors
+                  value: 3
+              - column:
+                  name: year
+                  valueDate: 2008-12-29
+
+        - insert:
+            tableName: other_informations
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: body
+                  value: Внедорожник
+              - column:
+                  name: equipment
+                  value: Базовая
+              - column:
+                  name: number_of_doors
+                  value: 5
+              - column:
+                  name: year
+                  valueDate: 2006-12-29
+
+        - insert:
+            tableName: other_informations
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: body
+                  value: Лифтбек
+              - column:
+                  name: equipment
+                  value: Базовая
+              - column:
+                  name: number_of_doors
+                  value: 5
+              - column:
+                  name: year
+                  valueDate: 2006-12-29

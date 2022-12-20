@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - include:
+      file: create-photo-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-users-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: car/changeset-init-car.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-dislike-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-like-table.yaml
+      relativeToChangelogFile: true

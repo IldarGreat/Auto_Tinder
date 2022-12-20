@@ -1,0 +1,92 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-engine-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: engines
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: engine_volume
+                  value: 5461
+              - column:
+                  name: engine_type
+                  value: AMT
+              - column:
+                  name: cylinder_count
+                  value: 8
+              - column:
+                  name: power
+                  value: 388
+              - column:
+                  name: torque
+                  value: 530
+
+        - insert:
+            tableName: engines
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: engine_volume
+                  value: 749
+              - column:
+                  name: engine_type
+                  value: DIESEL
+              - column:
+                  name: cylinder_count
+                  value: 2
+              - column:
+                  name: power
+                  value: 33
+              - column:
+                  name: torque
+                  value: 52
+
+        - insert:
+            tableName: engines
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: engine_volume
+                  value: 4172
+              - column:
+                  name: engine_type
+                  value: DIESEL
+              - column:
+                  name: cylinder_count
+                  value: 8
+              - column:
+                  name: power
+                  value: 310
+              - column:
+                  name: torque
+                  value: 410
+
+        - insert:
+            tableName: engines
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: engine_volume
+                  value: 1197
+              - column:
+                  name: engine_type
+                  value: DIESEL
+              - column:
+                  name: cylinder_count
+                  value: 4
+              - column:
+                  name: power
+                  value: 105
+              - column:
+                  name: torque
+                  value: 175

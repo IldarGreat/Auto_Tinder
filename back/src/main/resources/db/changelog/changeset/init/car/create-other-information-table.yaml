@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-other-informations-table
+      author: Ildar
+      comment: "Создание таблицы с прочей информацией об автомобиле"
+      changes:
+        - createTable:
+            tableName: other_informations
+            remarks: "Таблица с прочей информацией об автомобиле"
+            columns:
+              - column:
+                  remarks: "Id информации"
+                  name: id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  remarks: "Кузов"
+                  name: body
+                  type: VARCHAR(255)
+              - column:
+                  remarks: "Комплектация"
+                  name: equipment
+                  type: VARCHAR(255)
+              - column:
+                  remarks: "Количество дверей"
+                  name: number_of_doors
+                  type: INTEGER
+              - column:
+                  remarks: "Передняя подвеска"
+                  name: year
+                  type: DATE
+
+

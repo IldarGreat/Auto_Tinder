@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-suspensions-and-brake-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: suspensions_and_brakes
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: front_suspension
+                  value: Торсионная балка
+              - column:
+                  name: back_suspension
+                  value: Торсионная балка
+              - column:
+                  name: front_brakes
+                  value: Дисковые
+              - column:
+                  name: back_brakes
+                  value: Дисковые
+
+        - insert:
+            tableName: suspensions_and_brakes
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: front_suspension
+                  value: Отсутствуют
+              - column:
+                  name: back_suspension
+                  value: Отсутствуют
+              - column:
+                  name: front_brakes
+                  value: Дисковые
+              - column:
+                  name: back_brakes
+                  value: Барабанные
+
+        - insert:
+            tableName: suspensions_and_brakes
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: front_suspension
+                  value: Отсутствуют
+              - column:
+                  name: back_suspension
+                  value: Отсутствуют
+              - column:
+                  name: front_brakes
+                  value: Дисковые
+              - column:
+                  name: back_brakes
+                  value: Барабанные
+
+        - insert:
+            tableName: suspensions_and_brakes
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: front_suspension
+                  value: Отсутствуют
+              - column:
+                  name: back_suspension
+                  value: Отсутствуют
+              - column:
+                  name: front_brakes
+                  value: Дисковые
+              - column:
+                  name: back_brakes
+                  value: Дисковые

@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-photo-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: photos
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: photo_link
+                  value: https://www.withashleyandco.com/wp-content/uploads/2014/05/maleficent536acd2c78057.jpg
+
+        - insert:
+            tableName: photos
+            columns:
+             - column:
+                 name: id
+                 value: 2
+             - column:
+                  name: photo_link
+                  value: https://e-news.su/uploads/posts/2019-08/1567058422_e-news.su_146615020412395912.jpg
+
+        - insert:
+            tableName: photos
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: photo_link
+                  value: https://www.hcamur.ru/media/news_images/2022-10-07_18.56.11.jpg
+
+        - insert:
+            tableName: photos
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: photo_link
+                  value: https://banzay.ru/files/cb8abff314ac4c04649b2beb78f3ef4d.jpeg
+
+        - insert:
+            tableName: photos
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: photo_link
+                  value: https://banzay.ru/files/cb8abff314ac4c04649b2beb78f3ef4d.jpeg
+
+        - insert:
+            tableName: photos
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: photo_link
+                  value: https://games.mail.ru/hotbox/content_files/news/2021/08/19/76f1527325704051944b8648420eb144.jpg

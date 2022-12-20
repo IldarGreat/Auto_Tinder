@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: insert-photo-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: insert-users-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: car/changeset-insert-car.yaml
+      relativeToChangelogFile: true
