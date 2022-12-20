@@ -1,7 +1,7 @@
 databaseChangeLog:
   - include:
-      file: changeset/init/changeset-init-base.yaml
+      file: insert-photo-table.yaml
       relativeToChangelogFile: true
   - include:
-      file: changeset/insert/changeset-insert-base.yaml
+      file: insert-users-table.yaml
       relativeToChangelogFile: true

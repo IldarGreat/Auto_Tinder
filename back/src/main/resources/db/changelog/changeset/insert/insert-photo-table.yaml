@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-photo-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: photos
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: photo_link
+                  value: https://www.withashleyandco.com/wp-content/uploads/2014/05/maleficent536acd2c78057.jpg
+        - insert:
+            tableName: photos
+            columns:
+             - column:
+                 name: id
+                 value: 2
+             - column:
+                  name: photo_link
+                  value: https://e-news.su/uploads/posts/2019-08/1567058422_e-news.su_146615020412395912.jpg

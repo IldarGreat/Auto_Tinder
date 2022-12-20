@@ -25,7 +25,13 @@ databaseChangeLog:
               - column:
                   remarks: "Пароль"
                   name: password
-                  type: VARCHAR(40)
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  remarks: "Подписка"
+                  name: role
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
               - column:
@@ -41,7 +47,7 @@ databaseChangeLog:
               - column:
                   remarks: "О себе"
                   name: life_story
-                  type: VARCHAR(40)
+                  type: VARCHAR(255)
               - column:
                   remarks: "Почта"
                   name: email
@@ -78,5 +84,6 @@ databaseChangeLog:
                   name: photo_id
                   type: INTEGER
                   constraints:
+                    nullable: false
                     foreignKeyName: photo_id
                     references: photos(id)
