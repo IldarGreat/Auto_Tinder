@@ -19,8 +19,8 @@ databaseChangeLog:
               - column:
                   remarks: "Привод"
                   name: drive_unit
-                  type: INTEGER
+                  type: VARCHAR(255)
               - column:
                   remarks: "Тип коробки"
                   name: transmission_type
-                  type: VARCHAR(225)
+                  type: VARCHAR(255)

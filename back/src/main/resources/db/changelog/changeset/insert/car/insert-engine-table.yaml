@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-engine-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: engines
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: engine_volume
+                  value: 5461
+              - column:
+                  name: engine_type
+                  value: AMT
+              - column:
+                  name: cylinder_count
+                  value: 8
+              - column:
+                  name: power
+                  value: 388
+              - column:
+                  name: torque
+                  value: 530

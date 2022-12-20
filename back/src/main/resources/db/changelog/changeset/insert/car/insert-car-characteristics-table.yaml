@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-car-characteristic-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: car_characteristics
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: engine_id
+                  value: 1
+              - column:
+                  name: transmission_id
+                  value: 1
+              - column:
+                  name: suspension_and_brake_id
+                  value: 1
+              - column:
+                  name: dimension_id
+                  value: 1
+              - column:
+                  name: otherInformation_id
+                  value: 1

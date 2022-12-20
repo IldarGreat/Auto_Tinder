@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-car-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: user_id
+                  value: a1c95505-04c6-49d3-a67d-cdc7320400bc
+              - column:
+                  name: name
+                  value: Mercedes-Benz G-класс 5.5 АТ
+              - column:
+                  name: price
+                  value: 3850000
+              - column:
+                  name: status
+                  value: ON_SALE
+              - column:
+                  name: car_characteristic_id
+                  value: 1

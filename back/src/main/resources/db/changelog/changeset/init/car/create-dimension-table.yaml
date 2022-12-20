@@ -17,19 +17,19 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  remarks: "Длина"
+                  remarks: "Длина [мм]"
                   name: length
                   type: INTEGER
               - column:
-                  remarks: "Высота"
+                  remarks: "Высота [мм]"
                   name: height
                   type: INTEGER
               - column:
-                  remarks: "Колесная база?"
+                  remarks: "Колесная база [мм]"
                   name: wheelbase
                   type: INTEGER
               - column:
-                  remarks: "Обьем багажника"
+                  remarks: "Обьем багажника [л]"
                   name: trunk_volume
                   type: INTEGER
 

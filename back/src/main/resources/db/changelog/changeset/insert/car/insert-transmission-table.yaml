@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-transmission-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: transmissions
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: drive_unit
+                  value: Полный
+              - column:
+                  name: transmission_type
+                  value: AMT

@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-other-information-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: other_informations
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: body
+                  value: Внедорожник
+              - column:
+                  name: equipment
+                  value: Base
+              - column:
+                  name: number_of_doors
+                  value: 3
+              - column:
+                  name: year
+                  valueDate: 2015-12-29

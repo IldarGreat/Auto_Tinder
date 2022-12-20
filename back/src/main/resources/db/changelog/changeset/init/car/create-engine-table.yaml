@@ -17,7 +17,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  remarks: "Обьем двигателя"
+                  remarks: "Обьем двигателя [см в кубе]"
                   name: engine_volume
                   type: INTEGER
               - column:
@@ -26,14 +26,14 @@ databaseChangeLog:
                   type: VARCHAR(225)
               - column:
                   remarks: "Количество цилиндров"
-                  name: cylinderCount
+                  name: cylinder_count
                   type: INTEGER
               - column:
                   remarks: "Мощность"
                   name: power
                   type: INTEGER
               - column:
-                  remarks: "Крутящий момент"
+                  remarks: "Крутящий момент [Н*м]"
                   name: torque
                   type: INTEGER
 

@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-into-dimension-table
+      author: Ildar
+      changes:
+        - insert:
+            tableName: dimensions
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: length
+                  value: 4212
+              - column:
+                  name: height
+                  value: 1931
+              - column:
+                  name: wheelbase
+                  value: 2400
+              - column:
+                  name: trunk_volume
+                  value: 250

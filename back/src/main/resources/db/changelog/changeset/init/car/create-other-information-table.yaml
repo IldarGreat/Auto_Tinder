@@ -21,7 +21,7 @@ databaseChangeLog:
                   name: body
                   type: VARCHAR(255)
               - column:
-                  remarks: "Оборудование?"
+                  remarks: "Комплектация"
                   name: equipment
                   type: VARCHAR(255)
               - column:
