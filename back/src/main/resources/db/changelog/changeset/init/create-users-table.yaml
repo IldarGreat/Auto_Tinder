@@ -69,12 +69,6 @@ databaseChangeLog:
                   type: INTEGER
                   defaultValue: 5
               - column:
-                  remarks: "Дата рождения"
-                  name: date_of_birth
-                  type: DATE
-                  constraints:
-                    nullable: false
-              - column:
                   remarks: "Забущен ли акк"
                   name: is_boost
                   type: BOOLEAN

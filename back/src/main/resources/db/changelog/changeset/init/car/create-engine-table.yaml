@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-engine-table
+      author: Ildar
+      comment: "Создание таблицы с двигателями"
+      changes:
+        - createTable:
+            tableName: engines
+            remarks: "Таблица с двигателями"
+            columns:
+              - column:
+                  remarks: "Id двигателя"
+                  name: id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  remarks: "Обьем двигателя"
+                  name: engine_volume
+                  type: INTEGER
+              - column:
+                  remarks: "Тип двигателя"
+                  name: engine_type
+                  type: VARCHAR(225)
+              - column:
+                  remarks: "Количество цилиндров"
+                  name: cylinderCount
+                  type: INTEGER
+              - column:
+                  remarks: "Мощность"
+                  name: power
+                  type: INTEGER
+              - column:
+                  remarks: "Крутящий момент"
+                  name: torque
+                  type: INTEGER
+

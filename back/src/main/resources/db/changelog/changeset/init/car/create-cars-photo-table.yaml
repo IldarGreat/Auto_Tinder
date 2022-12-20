@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-cars-photo-table
+      author: Ildar
+      comment: "Создание таблицы фотографий машин"
+      changes:
+        - createTable:
+            tableName: cars_photos
+            remarks: "Таблица с фотографиями машин"
+            columns:
+              - column:
+                  remarks: "Id фотографии"
+                  name: photo_id
+                  type: SERIAL
+                  constraints:
+                    nullable: false
+                    foreignKeyName: photo_id
+                    references: photos(id)
+              - column:
+                  remarks: "Ссылка на машину"
+                  name: car_id
+                  type: SERIAL
+                  constraints:
+                    nullable: false
+                    foreignKeyName: car_id
+                    references: cars(id)
+  - changeSet:
+      id: create-cars-photo-keys
+      author: Ildar
+      changes:
+        - addPrimaryKey:
+            columnNames: photo_id, car_id
+            tableName: cars_photos

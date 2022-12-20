@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-transmission-table
+      author: Ildar
+      comment: "Создание таблицы с коробками передач"
+      changes:
+        - createTable:
+            tableName: transmissions
+            remarks: "Таблица с коробками передач"
+            columns:
+              - column:
+                  remarks: "Id коробки передач"
+                  name: id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  remarks: "Привод"
+                  name: drive_unit
+                  type: INTEGER
+              - column:
+                  remarks: "Тип коробки"
+                  name: transmission_type
+                  type: VARCHAR(225)

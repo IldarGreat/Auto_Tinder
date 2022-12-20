@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-suspensions-and-brakes-table
+      author: Ildar
+      comment: "Создание таблицы с подвесками и тормозами"
+      changes:
+        - createTable:
+            tableName: suspensions_and_brakes
+            remarks: "Таблица с подвесками и тормозами"
+            columns:
+              - column:
+                  remarks: "Id подвески и тормозов"
+                  name: id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  remarks: "Передняя подвеска"
+                  name: front_suspension
+                  type: VARCHAR(255)
+              - column:
+                  remarks: "Задняя подвеска"
+                  name: back_suspension
+                  type: VARCHAR(255)
+              - column:
+                  remarks: "Задние тормоза"
+                  name: front_brakes
+                  type: VARCHAR(255)
+              - column:
+                  remarks: "Передние тормоза"
+                  name: back_brakes
+                  type: VARCHAR(255)
+

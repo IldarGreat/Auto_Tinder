@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-car-characteristics-table
+      author: Ildar
+      comment: "Создание таблицы с характеристиками автомобиля"
+      changes:
+        - createTable:
+            tableName: car_characteristics
+            remarks: "Таблица с характеристиками автомобиля"
+            columns:
+              - column:
+                  remarks: "Id характеристики"
+                  name: id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  remarks: "ID двигателя"
+                  name: engine_id
+                  type: INTEGER
+                  constraints:
+                    foreignKeyName: engine_id
+                    references: engines(id)
+              - column:
+                  remarks: "ID коробки передач"
+                  name: transmission_id
+                  type: INTEGER
+                  constraints:
+                    foreignKeyName: transmission_id
+                    references: transmissions(id)
+              - column:
+                  remarks: "ID подвесок и тормозов"
+                  name: suspension_and_brake_id
+                  type: INTEGER
+                  constraints:
+                    foreignKeyName: suspension_and_brake_id
+                    references: suspensions_and_brakes(id)
+              - column:
+                  remarks: "ID размеров авто"
+                  name: dimension_id
+                  type: INTEGER
+                  constraints:
+                    foreignKeyName: dimension_id
+                    references: dimensions(id)
+              - column:
+                  remarks: "ID размеров авто"
+                  name: otherInformation_id
+                  type: INTEGER
+                  constraints:
+                    foreignKeyName: otherInformation_id
+                    references: other_informations(id)

@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - include:
+      file: create-engine-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-dimension-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-other-information-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-suspensions-and-brakes-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-transmission-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-car-characteristics-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-car-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-cars-photo-table.yaml
+      relativeToChangelogFile: true
+
