@@ -40,7 +40,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "isEmailActivated")
+    @Column(name = "is_email_activated")
     private boolean isEmailActivated;
 
     @Column(name = "date_of_birth")
