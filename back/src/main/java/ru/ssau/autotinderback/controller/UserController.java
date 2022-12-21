@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.ssau.autotinderback.model.dto.request.UserPatchRequest;
@@ -17,6 +18,7 @@ import ru.ssau.autotinderback.service.service.UserService;
 @RequestMapping("/users")
 @Tag(name = "Действия связанные с пользователем")
 @RequiredArgsConstructor
+@PreAuthorize("hasAnyAuthority('USUAL','PLUS','GOLD','PLATINUM','ADMIN')")
 public class UserController {
     private final UserService userService;
 

@@ -34,8 +34,9 @@ public class AuthController {
         return new ResponseEntity<>(userService.register(userRequest), HttpStatus.CREATED);
     }
 
-    @PostMapping(value = "/delete", produces = "application/json; charset=UTF-8", consumes = "application/json; charset=UTF-8")
-    @Operation(summary = "Авторизация")
+    @DeleteMapping(produces = "application/json; charset=UTF-8", consumes = "application/json; charset=UTF-8")
+    @Operation(summary = "Удаление аккаунта")
+    @PreAuthorize("hasAnyAuthority('USUAL','PLUS','GOLD','PLATINUM','ADMIN')")
     public ResponseEntity<Void> deleteAccount() {
         return new ResponseEntity<>(userService.delete(), HttpStatus.OK);
     }
