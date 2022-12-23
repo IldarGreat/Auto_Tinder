@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
     private final JwtTokenProvider jwtTokenProvider;
     private final FirebaseService firebaseService;
     private final PhotoRepository photoRepository;
+    private final MailSender mailSender;
 
     @Override
     public AuthDto register(UserRequest userRequest) {
@@ -48,6 +49,8 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
         log.info("{} successfully registered", userRequest.login());
         // Сделать отправку на почту
+        String textMessage = "Hello " + userRequest.login() + " Please visit link to activate account http:localhost8080/auth/verify/" + user.getId();
+        mailSender.send(userRequest.email(),textMessage,"Activate account");
         return new AuthDto("Please confirm your email,a activation link has been sent to " + userRequest.email(), "", "");
     }
 
