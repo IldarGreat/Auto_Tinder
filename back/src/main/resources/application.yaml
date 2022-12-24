@@ -14,7 +14,7 @@ spring:
     username: eldaridiatov@yandex.ru
     password: xjjxuctwtumuvitz
     port: 465
-    protocol: smpts
+    protocol: smtps
 
 application:
   auth:

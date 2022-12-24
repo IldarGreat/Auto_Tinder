@@ -8,7 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import ru.ssau.autotinderback.exception.NotFound;
+import ru.ssau.autotinderback.exception.NotFoundException;
 import ru.ssau.autotinderback.model.dto.request.LoginDto;
 import ru.ssau.autotinderback.model.dto.request.UserPatchRequest;
 import ru.ssau.autotinderback.model.dto.request.UserRequest;
@@ -126,13 +126,13 @@ public class UserServiceImpl implements UserService {
 
     public User findUserByID(UUID Id) {
         return userRepository.findById(Id)
-                .orElseThrow(() -> new NotFound("User with id:" + Id + " not found"));
+                .orElseThrow(() -> new NotFoundException("User with id:" + Id + " not found"));
     }
 
     public User findUserByLogin(String login) {
         User user = userRepository.findByLogin(login);
         if (user == null) {
-            throw new NotFound("User with login:" + login + " not found");
+            throw new NotFoundException("User with login:" + login + " not found");
         }
         return user;
     }
