@@ -18,40 +18,41 @@ class _ChangePageState extends State<ChangePage> {
           gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
-              colors: [Colors.purple, Colors.blue]),
+              colors: [Colors.blue, Colors.purple]),
         ),
         child: ListView(),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.purple,
+          type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.blue,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.camera_alt,
               color: Colors.black54,
             ),
-            label: "Главная",
+            label: "Обмен",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.book,
               color: Colors.black54,
             ),
-            label: "События",
+            label: "Подборка",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.favorite_border,
               color: Colors.black54,
             ),
-            label: "Личный кабинет",
+            label: "Подписка",
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.message,
               color: Colors.black54,
             ),
-            label: "События",
+            label: "Сообщения",
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -62,7 +63,7 @@ class _ChangePageState extends State<ChangePage> {
           )
         ],
         currentIndex: 0,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.black54,
         onTap: _onTappedBar,
       ),
     );
