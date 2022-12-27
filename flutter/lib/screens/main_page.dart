@@ -26,7 +26,6 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -57,11 +56,11 @@ class MainPageState extends State<MainPage> {
             const SizedBox(
               height: 250,
             ),
-            button('Войти'),
+            button('Войти',context),
             const SizedBox(
               height: 25,
             ),
-            button('Зарегистрироваться'),
+            button('Зарегистрироваться',context),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
