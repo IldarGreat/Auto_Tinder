@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class DBUser {
   late int? id;
   late String? accessToken;
@@ -28,4 +30,38 @@ class DBUser {
     map['photo_id'] = photoId;
     return map;
   }
+
+  factory DBUser.fromJson(Map<String, dynamic> json) {
+    return DBUser(
+        Random().nextInt(100),
+        json['accessToken'] as String,
+        json['firstName'] as String,
+        json['secondName'] as String,
+        json['role'] as String,
+        json['photoId'] as String);
+  }
+}
+
+class UserRequest {
+  late String? login;
+  late String? password;
+  late String? firstName;
+  late String? secondName;
+  late String? lifeStory;
+  late String? email;
+  late String? dateOfBirth;
+  late String? phoneNumber;
+
+  UserRequest(this.login, this.password, this.firstName, this.secondName,
+      this.lifeStory, this.email, this.dateOfBirth, this.phoneNumber);
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'login': login,
+        'password': password,
+        'firstName': firstName,
+        'secondName': secondName,
+        'lifeStory': lifeStory,
+        'email': email,
+        'dateOfBirth': dateOfBirth,
+        'phoneNumber': phoneNumber,
+      };
 }

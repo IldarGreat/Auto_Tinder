@@ -8,7 +8,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool _hidePass = true;
+  bool _hidePass = false;
   final _loginController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -25,14 +25,14 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
               colors: [Colors.purple, Colors.blue]),
         ),
         child: Form(
           key: _formKey,
           child: ListView(
-            padding: EdgeInsets.all(25),
+            padding: const EdgeInsets.all(25),
             children: [
               const SizedBox(
                 height: 150,

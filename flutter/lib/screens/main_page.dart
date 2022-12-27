@@ -16,7 +16,7 @@ class MainPageState extends State<MainPage> {
     super.initState();
     DBProvider.db.getDBUser().then((value) {
       if (value != null) {
-        print("We have user!");
+        Navigator.pushReplacementNamed(context, '/personal_page');
       }else{
         print("We dont have user");
       }
