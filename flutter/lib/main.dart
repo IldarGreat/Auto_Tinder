@@ -10,6 +10,8 @@ import 'package:front/screens/sub/my_likes.dart';
 import 'screens/main_page.dart';
 import 'package:flutter/services.dart';
 
+import 'screens/personal/change_user.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
@@ -40,6 +42,9 @@ void main() {
 
             case '/change_page':
               return MaterialPageRoute(builder: (context) => const ChangePage());
+
+            case '/change_user_page':
+              return MaterialPageRoute(builder: (context) => const ChangeUserPage());
           }
         }),
   );

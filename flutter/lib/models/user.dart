@@ -6,10 +6,12 @@ class DBUser {
   late String? firstName;
   late String? secondName;
   late String? role;
-  late String? photoId;
+  late String photoId;
+  late String? email;
+  late String? phone;
 
   DBUser(this.id, this.accessToken, this.firstName, this.secondName, this.role,
-      this.photoId);
+      this.photoId, this.email, this.phone);
 
   DBUser.fromMap(Map<String, dynamic> map) {
     id = map['id'];
@@ -18,6 +20,8 @@ class DBUser {
     secondName = map['second_name'];
     role = map['role'];
     photoId = map['photo_id'];
+    email = map['email'];
+    phone = map['phone'];
   }
 
   Map<String, dynamic> toMap() {
@@ -28,6 +32,8 @@ class DBUser {
     map['second_name'] = secondName;
     map['role'] = role;
     map['photo_id'] = photoId;
+    map['email'] = email;
+    map['phone'] = phone;
     return map;
   }
 
@@ -38,7 +44,9 @@ class DBUser {
         json['firstName'] as String,
         json['secondName'] as String,
         json['role'] as String,
-        json['photoId'] as String);
+        json['photoId'] as String,
+        json['email'] as String,
+        json['phone'] as String);
   }
 }
 
@@ -64,4 +72,32 @@ class UserRequest {
         'dateOfBirth': dateOfBirth,
         'phoneNumber': phoneNumber,
       };
+}
+
+class UserResponse {
+  late String? id;
+  late String? login;
+  late String? role;
+  late String? firstName;
+  late String? secondName;
+  late String? lifeStory;
+  late String? email;
+  late String? dateOfBirth;
+  late String? phoneNumber;
+
+  UserResponse(this.id, this.login, this.role, this.firstName, this.secondName,
+      this.lifeStory, this.email, this.dateOfBirth, this.phoneNumber);
+
+  factory UserResponse.fromJson(Map<String, dynamic> json) {
+    return UserResponse(
+        json['id'] as String,
+        json['login'] as String,
+        json['role'] as String,
+        json['firstName'] as String,
+        json['secondName'] as String,
+        json['lifeStory'] as String,
+        json['email'] as String,
+        json['dateOfBirth'] as String,
+        json['phoneNumber'] as String);
+  }
 }

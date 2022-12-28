@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:front/api/auth_api.dart';
+import 'package:front/api/user_api.dart';
 import 'package:front/db/database.dart';
 import 'package:front/models/user.dart';
 
@@ -11,7 +14,6 @@ Widget button(String text, dynamic context) {
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(9.0),
-          //  side: const BorderSide(color: Color.fromARGB(255, 255, 255, 123)),
         ),
       ),
     ),
@@ -36,7 +38,6 @@ Widget button(String text, dynamic context) {
 
 Widget enterButton(String text, String login, String password, dynamic context,
     GlobalKey<FormState> key) {
-      print('ds2a');
   return ElevatedButton(
     style: ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -46,7 +47,6 @@ Widget enterButton(String text, String login, String password, dynamic context,
       ),
     ),
     onPressed: () {
-      print('ds2a');
       if (key.currentState!.validate()) {
         AuthApi().login(login, password).then((value) {
           if (value != null) {
@@ -82,7 +82,8 @@ Widget registerButton(
     String password,
     DateTime dateOfBirth,
     dynamic context,
-    GlobalKey<FormState> key) {
+    GlobalKey<FormState> key,
+    File? image) {
   return ElevatedButton(
     style: ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -121,6 +122,51 @@ Widget registerButton(
   );
 }
 
+Widget patchButton(
+    String text,
+    DBUser? user,
+    String firstName,
+    String secondName,
+    String phone,
+    dynamic context,
+    GlobalKey<FormState> key,
+    File? image) {
+  return ElevatedButton(
+    style: ButtonStyle(
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(9.0),
+        ),
+      ),
+    ),
+    onPressed: () {
+      print(secondName);
+      if (key.currentState!.validate()) {
+        DBProvider.db
+            .getDBUser()
+            .then((value) => UserApi()
+                .patch(firstName, secondName, phone, value!.accessToken))
+            .then((value) {
+          if (value != null) {
+            user!.firstName = value.firstName;
+            user.secondName = value.secondName;
+            user.phone = value.phoneNumber;
+            DBProvider.db.updateAuth(user);
+            errorBar('Изменено',context);
+          }
+        });
+      }
+    },
+    child: Text(
+      text,
+      style: const TextStyle(
+        fontSize: 30,
+        fontStyle: FontStyle.italic,
+      ),
+    ),
+  );
+}
+
 Widget imageButton(
         {required String title,
         required IconData icon,
@@ -128,14 +174,6 @@ Widget imageButton(
     ElevatedButton(
         onPressed: onClicked,
         child: Row(
-          children: [
-            Icon(
-              icon,
-              size: 28,
-            ),
-            const SizedBox(
-              width: 15,
-            ),
-            Text(title)
-          ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text(title)],
         ));

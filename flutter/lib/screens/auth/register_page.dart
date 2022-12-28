@@ -39,17 +39,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _loginController.dispose();
   }
 
-  Future pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) {
-      return;
-    }
-    final imageTemporary = File(image.path);
-    setState(() {
-      this.image = imageTemporary;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,20 +74,11 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 60,
               ),
-              image != null
-                  ? Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
-                      child: ClipRRect(
-                        child: Image.file(
-                          image!,
-                          fit: BoxFit.cover,
-                        ),
-                      ))
-                  : Icon(Icons.camera_front_outlined),
-              imageButton(
-                  title: 'Загрузить из галереи',
-                  icon: Icons.image_outlined,
-                  onClicked: () => pickImage()),
+              const CircleAvatar(
+                      radius: 100,
+                      backgroundImage: NetworkImage(
+                          'https://www.clipartmax.com/png/middle/364-3643767_about-brent-kovacs-user-profile-placeholder.png'),
+                    ),
               TextFormField(
                 controller: _loginController,
                 maxLength: 25,
@@ -314,7 +294,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text(
                     'Дата рождения ${dateOfBirth.year}-${dateOfBirth.month}-${dateOfBirth.day}',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.white),
                   ),
                 ],
               ),
@@ -332,7 +313,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     _passwordController.text,
                     dateOfBirth,
                     context,
-                    _formKey),
+                    _formKey,
+                    image),
               ),
             ],
           ),
@@ -366,7 +348,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         child: const Text(
           'Изменить дату рождения',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ));
   }
 }

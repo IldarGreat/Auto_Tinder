@@ -14,6 +14,8 @@ class DBProvider{
   static const _secondName = 'second_name';
   static const _role = 'role';
   static const _photoId = 'photo_id';
+  static const _email = 'email';
+  static const _phone = 'phone';
   Future<Database> get database async => _database ??= await _initDB();
 
    Future<Database> _initDB() async {
@@ -24,7 +26,7 @@ class DBProvider{
 
   void _createDB(Database db, int version) async {
     await db.execute(
-        'CREATE TABLE $_authTable(id INTEGER PRIMARY KEY AUTOINCREMENT, $_accessToken TEXT,$_firstName TEXT,$_secondName TEXT,$_role TEXT,$_photoId TEXT)');
+        'CREATE TABLE $_authTable(id INTEGER PRIMARY KEY AUTOINCREMENT, $_accessToken TEXT,$_firstName TEXT,$_secondName TEXT,$_role TEXT,$_photoId TEXT,$_email TEXT,$_phone TEXT)');
   }
 
   Future<DBUser?> getDBUser() async {
@@ -48,7 +50,7 @@ class DBProvider{
         where: 'id=?', whereArgs: [user.id]);
   }
 
-  Future<int> deleteAuth(int id) async {
+  Future<int> deleteAuth(int? id) async {
     Database db = await database;
     return await db.delete(_authTable, where: 'id=?', whereArgs: [id]);
   }
