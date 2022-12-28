@@ -7,6 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import ru.ssau.autotinderback.exception.NotFoundException;
 import ru.ssau.autotinderback.model.dto.request.LoginDto;
@@ -40,18 +41,24 @@ public class UserServiceImpl implements UserService {
     private final MailSender mailSender;
 
     @Override
+    @Transactional
     public AuthDto register(UserRequest userRequest) {
         log.info("Attempt to register an account with a login {}", userRequest.login());
         User user = userMapper.toEntity(userRequest);
         user.setId(UUID.randomUUID());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(Role.USUAL);
+        Photo photo = Photo
+                .builder()
+                .photoLink("https://www.clipartmax.com/png/middle/364-3643767_about-brent-kovacs-user-profile-placeholder.png")
+                .build();
+        Photo photoDb = photoRepository.save(photo);
+        user.setPhoto(photoDb);
         userRepository.save(user);
         log.info("{} successfully registered", userRequest.login());
-        // Сделать отправку на почту
         String textMessage = "Hello " + userRequest.login() + " Please visit link to activate account http:localhost8080/auth/verify/" + user.getId();
-        mailSender.send(userRequest.email(),textMessage,"Activate account");
-        return new AuthDto("Please confirm your email,a activation link has been sent to " + userRequest.email(), "", "");
+        mailSender.send(userRequest.email(), textMessage, "Activate account");
+        return new AuthDto("Please confirm your email,a activation link has been sent to " + userRequest.email(), "", "", "", "","","");
     }
 
     @Override
@@ -65,7 +72,12 @@ public class UserServiceImpl implements UserService {
             log.info("{} email {} not activated", loginDto.login(), user.getEmail());
             throw new IllegalArgumentException("Your email " + user.getEmail() + " not activated. Please visit activation code that has been sent to your email");
         }
-        return new AuthDto(jwtTokenProvider.createToken(loginDto.login(), user.getRole()), user.getFirstName(), user.getSecondName());
+        log.info("{} are logged in account", loginDto.login());
+        String photoId = "";
+        if (user.getPhoto() != null) {
+            photoId = user.getPhoto().getPhotoLink();
+        }
+        return new AuthDto(jwtTokenProvider.createToken(loginDto.login(), user.getRole()), user.getFirstName(), user.getSecondName(), user.getRole().toString(), photoId,user.getEmail(),user.getPhoneNumber());
     }
 
     @Override
@@ -121,6 +133,7 @@ public class UserServiceImpl implements UserService {
         User user = findUserByID(verificationToken);
         user.setEmailActivated(true);
         log.info("User {} successfully activated his email {} ", user.getLogin(), user.getEmail());
+        userRepository.save(user);
         return null;
     }
 

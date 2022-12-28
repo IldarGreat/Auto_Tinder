@@ -41,7 +41,7 @@ databaseChangeLog:
                   value: +7(996)333-33-33
               - column:
                   name: photo_id
-                  value: 1
+                  value: 100000
         - insert:
             tableName: users
             columns:
@@ -80,7 +80,7 @@ databaseChangeLog:
                   value: +7(927)333-33-33
               - column:
                   name: photo_id
-                  value: 2
+                  value: 200000
 
         - insert:
             tableName: users
@@ -120,7 +120,7 @@ databaseChangeLog:
                   value: +7(999)999-99-99
               - column:
                   name: photo_id
-                  value: 3
+                  value: 300000
 
         - insert:
             tableName: users
@@ -160,7 +160,7 @@ databaseChangeLog:
                   value: +7(999)999-99-99
               - column:
                   name: photo_id
-                  value: 4
+                  value: 400000
 
         - insert:
             tableName: users
@@ -200,7 +200,7 @@ databaseChangeLog:
                   value: +7(999)999-99-99
               - column:
                   name: photo_id
-                  value: 5
+                  value: 500000
 
         - insert:
             tableName: users
@@ -240,4 +240,4 @@ databaseChangeLog:
                   value: +7(999)999-99-99
               - column:
                   name: photo_id
-                  value: 6
+                  value: 600000

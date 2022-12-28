@@ -17,6 +17,7 @@ import java.util.Set;
 @Table(name = "photos")
 public class Photo {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "photo_link", nullable = false)
