@@ -84,6 +84,5 @@ databaseChangeLog:
                   name: photo_id
                   type: INTEGER
                   constraints:
-                    nullable: false
                     foreignKeyName: photo_id
                     references: photos(id)

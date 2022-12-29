@@ -41,7 +41,7 @@ public class AuthController {
         return new ResponseEntity<>(userService.delete(), HttpStatus.OK);
     }
 
-    @PatchMapping("/verify/{verification_token}")
+    @GetMapping("/verify/{verification_token}")
     @Operation(summary = "Подтверждает регистрацию по токену из письма")
     public ResponseEntity<Void> verifyAccount(@PathVariable("verification_token") UUID verificationToken) {
         return new ResponseEntity<>(userService.verifyAccount(verificationToken), HttpStatus.OK);

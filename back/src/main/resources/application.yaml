@@ -9,9 +9,16 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+  mail:
+    host: smtp.yandex.ru
+    username: eldaridiatov@yandex.ru
+    password: xjjxuctwtumuvitz
+    port: 465
+    protocol: smtps
 
 application:
   auth:
     jwt-secret: IldarAndLera
     jwt-expiration-time: 999999h
     cookie-name: autoTinderJWT
+

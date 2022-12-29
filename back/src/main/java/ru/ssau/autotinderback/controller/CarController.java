@@ -72,9 +72,9 @@ public class CarController {
         return new ResponseEntity<>(carService.putLike(likingCarId, likedCarId), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/{disliking_car_id}/{disliking_car_id}/like")
+    @PostMapping(value = "/{disliking_car_id}/{disliked_car_id}/like")
     @Operation(summary = "Ставим дизлайк автомобилю своим автомобилем")
-    public ResponseEntity<Void> putDislike(@PathVariable("disliking_car_id") Integer dislikingCarId, @PathVariable("disliking_car_id") Integer dislikedCarId) {
+    public ResponseEntity<Void> putDislike(@PathVariable("disliking_car_id") Integer dislikingCarId, @PathVariable("disliked_car_id") Integer dislikedCarId) {
         return new ResponseEntity<>(carService.putDislike(dislikingCarId, dislikedCarId), HttpStatus.OK);
     }
 
