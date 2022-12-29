@@ -1,0 +1,241 @@
+@startuml test
+set namespaceSeparator ::
+
+class "front::api::auth_api.dart::AuthApi" {
+  +Future<String> register()
+  +Future<DBUser?> login()P
+}
+
+class "front::api::user_api.dart::UserApi" {
+  +Future<UserResponse?> patch()
+  +Future<String> changeSubscription()
+}
+
+class "front::db::database.dart::DBProvider" {
+  {static} +DBProvider db
+  {static} -Database? _database
+  {static} -String _authTable
+  {static} -String _accessToken
+  {static} -String _firstName
+  {static} -String _secondName
+  {static} -String _role
+  {static} -String _photoId
+  {static} -String _email
+  {static} -String _phone
+  +Future<Database> database
+  -Future<Database> _initDB()
+  -void _createDB()
+  +Future<DBUser?> getDBUser()
+  +Future<DBUser> insertUser()
+  +Future<int> updateAuth()
+  +Future<int> deleteAuth()
+}
+
+"front::db::database.dart::DBProvider" o-- "front::db::database.dart::DBProvider"
+"front::db::database.dart::DBProvider" o-- "sqflite_common::sqlite_api.dart::Database"
+
+class "front::models::user.dart::DBUser" {
+  +int? id
+  +String? accessToken
+  +String? firstName
+  +String? secondName
+  +String? role
+  +String photoId
+  +String? email
+  +String? phone
+  +Map<String, dynamic> toMap()
+}
+
+class "front::models::user.dart::UserRequest" {
+  +String? login
+  +String? password
+  +String? firstName
+  +String? secondName
+  +String? lifeStory
+  +String? email
+  +String? dateOfBirth
+  +String? phoneNumber
+  +Map<String, dynamic> toJson()
+}
+
+class "front::models::user.dart::UserResponse" {
+  +String? id
+  +String? login
+  +String? role
+  +String? firstName
+  +String? secondName
+  +String? lifeStory
+  +String? email
+  +String? dateOfBirth
+  +String? phoneNumber
+}
+
+class "front::screens::auth::login_page.dart::LoginPage" {
+  +State<LoginPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::auth::login_page.dart::LoginPage"
+
+class "front::screens::auth::login_page.dart::_LoginPageState" {
+  -bool _hidePass
+  -TextEditingController _loginController
+  -TextEditingController _passwordController
+  -GlobalKey<FormState> _formKey
+  +void dispose()
+  +Widget build()
+}
+
+"front::screens::auth::login_page.dart::_LoginPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"front::screens::auth::login_page.dart::_LoginPageState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::auth::login_page.dart::_LoginPageState"
+
+class "front::screens::auth::register_page.dart::RegisterPage" {
+  +State<RegisterPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::auth::register_page.dart::RegisterPage"
+
+class "front::screens::auth::register_page.dart::_RegisterPageState" {
+  -bool _hidePass
+  -bool _hideAnotherPass
+  -TextEditingController _firstNameController
+  -TextEditingController _secondNameController
+  -TextEditingController _emailController
+  -TextEditingController _passwordController
+  -TextEditingController _anotherPasswordController
+  -TextEditingController _storyController
+  -TextEditingController _phoneController
+  -TextEditingController _loginController
+  +DateTime dateOfBirth
+  -GlobalKey<FormState> _formKey
+  +File? image
+  +void dispose()
+  +Widget build()
+  +ElevatedButton editDate()
+}
+
+"front::screens::auth::register_page.dart::_RegisterPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"front::screens::auth::register_page.dart::_RegisterPageState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"front::screens::auth::register_page.dart::_RegisterPageState" o-- "dart::io::File"
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::auth::register_page.dart::_RegisterPageState"
+
+class "front::screens::change::change_page.dart::ChangePage" {
+  +State<ChangePage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::change::change_page.dart::ChangePage"
+
+class "front::screens::change::change_page.dart::_ChangePageState" {
+  +Widget build()
+  -void _onTappedBar()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::change::change_page.dart::_ChangePageState"
+
+class "front::screens::compilation::compilation_page.dart::CompilationPage" {
+  +State<CompilationPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::compilation::compilation_page.dart::CompilationPage"
+
+class "front::screens::compilation::compilation_page.dart::_CompilationPageState" {
+  +Widget build()
+  -void _onTappedBar()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::compilation::compilation_page.dart::_CompilationPageState"
+
+class "front::screens::main_page.dart::MainPage" {
+  +State<StatefulWidget> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::main_page.dart::MainPage"
+
+class "front::screens::main_page.dart::MainPageState" {
+  +void initState()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::main_page.dart::MainPageState"
+
+class "front::screens::messages::messages_page.dart::MessagesPage" {
+  +State<MessagesPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::messages::messages_page.dart::MessagesPage"
+
+class "front::screens::messages::messages_page.dart::_MessagesPageState" {
+  +Widget build()
+  -void _onTappedBar()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::messages::messages_page.dart::_MessagesPageState"
+
+class "front::screens::personal::change_user.dart::ChangeUserPage" {
+  +State<ChangeUserPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::personal::change_user.dart::ChangeUserPage"
+
+class "front::screens::personal::change_user.dart::_ChangeUserPageState" {
+  -TextEditingController _firstNameController
+  -TextEditingController _secondNameController
+  -TextEditingController _phoneController
+  +DateTime dateOfBirth
+  -GlobalKey<FormState> _formKey
+  +File? image
+  +DBUser? user
+  +void initState()
+  +void dispose()
+  +Future<dynamic> pickImage()
+  +Widget build()
+}
+
+"front::screens::personal::change_user.dart::_ChangeUserPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"     
+"front::screens::personal::change_user.dart::_ChangeUserPageState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"front::screens::personal::change_user.dart::_ChangeUserPageState" o-- "dart::io::File"
+"front::screens::personal::change_user.dart::_ChangeUserPageState" o-- "front::models::user.dart::DBUser"
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::personal::change_user.dart::_ChangeUserPageState"
+
+class "front::screens::personal::personal_page.dart::PersonalPage" {
+  +State<PersonalPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::personal::personal_page.dart::PersonalPage"
+
+class "front::screens::personal::personal_page.dart::_PersonalPageState" {
+  +DBUser? user
+  +void initState()
+  +Widget build()
+  -void _onTappedBar()
+}
+
+"front::screens::personal::personal_page.dart::_PersonalPageState" o-- "front::models::user.dart::DBUser"
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::personal::personal_page.dart::_PersonalPageState"
+
+class "front::screens::sub::my_likes.dart::MyLikes" {
+  +State<MyLikes> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "front::screens::sub::my_likes.dart::MyLikes"
+
+class "front::screens::sub::my_likes.dart::_MyLikesState" {
+  +DBUser? user
+  +void initState()
+  +Widget build()
+  -void _onTappedBar()
+  +Widget title()
+}
+
+"front::screens::sub::my_likes.dart::_MyLikesState" o-- "front::models::user.dart::DBUser"
+"flutter::src::widgets::framework.dart::State" <|-- "front::screens::sub::my_likes.dart::_MyLikesState"
+
+class "front::utils::constants.dart::Constants" {
+  {static} +String AUTOTINDER_BASE_SCHEMA
+  {static} +String AUTOTINDER_BASE_URL_DOMAIN
+  {static} +String AUTOTINDER_AUTH_PATH
+  {static} +String AUTOTINDER_USER_PATH
+}
+
+
+@enduml
